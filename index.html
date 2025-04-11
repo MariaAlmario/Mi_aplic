@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería API Picsum</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+  <!-- Splash Screen -->
+  <div id="splash-screen">
+    <h1>Cargando...</h1>
+  </div>
+
+  <!-- Navegación superior -->
+  <header>
+    <nav class="tabs">
+      <button onclick="mostrarSeccion('inicio')">Inicio</button>
+      <button onclick="mostrarSeccion('galeria')">Galería</button>
+      <button onclick="mostrarSeccion('buscar')">Buscar</button>
+      <button onclick="mostrarSeccion('favoritos')">Favoritos</button>
+      <button onclick="mostrarSeccion('registro')">Registro</button>
+      <button onclick="mostrarSeccion('extra')">Extra</button>
+    </nav>
+  </header>
+
+  <!-- Contenido principal -->
+  <main>
+
+    <section id="inicio" class="seccion activa">
+      <h2>Bienvenido</h2>
+      <p>Explora imágenes desde la API de Picsum.</p>
+    </section>
+
+    <section id="galeria" class="seccion">
+      <h2>Galería</h2>
+      <div id="image-list"></div>
+    </section>
+
+    <section id="buscar" class="seccion">
+      <h2>Buscar y Filtrar</h2>
+      <input type="text" id="search-input" placeholder="Buscar por autor...">
+      <select id="filter-select">
+        <option value="all">Todos</option>
+        <option value="grayscale">Grayscale</option>
+        <option value="blur">Blur</option>
+      </select>
+      <div id="search-results"></div>
+    </section>
+
+    <section id="favoritos" class="seccion">
+      <h2>Favoritos</h2>
+      <div id="favoritos-list"></div>
+    </section>
+
+    <section id="registro" class="seccion">
+      <h2>Formulario de Registro</h2>
+      <form id="registro-form">
+        <input type="text" name="nombre" placeholder="Nombre" required />
+        <input type="text" name="apellido" placeholder="Apellido" required />
+        <input type="email" name="correo" placeholder="Correo electrónico" required />
+        <input type="password" name="password" placeholder="Contraseña" required />
+        <input type="tel" name="telefono" placeholder="Teléfono" required />
+        <input type="date" name="nacimiento" required />
+        <input type="text" name="pais" placeholder="País" required />
+        <button type="submit">Registrar</button>
+      </form>
+      
+    </section>
+
+    <section id="extra" class="seccion">
+      <h2>Imagen Aleatoria</h2>
+      <button onclick="mostrarImagenAleatoria()">Ver Imagen Aleatoria</button>
+      <div id="imagen-aleatoria"></div>
+    </section>
+
+  </main>
+
+  <!-- Menú inferior -->
+  <footer class="bottom-menu">
+    <button onclick="mostrarSeccion('inicio')">Inicio</button>
+    <button onclick="mostrarSeccion('buscar')">Buscar</button>
+    <button onclick="mostrarSeccion('favoritos')">Favoritos</button>
+    <button onclick="mostrarSeccion('registro')">Perfil</button>
+  </footer>
+
+  <script src="script.js"></script>
+  <script type="module" src="firebase-init.js"></script>
+  <script type="module" src="registro.js"></script>
+
+</body>
+</html>
