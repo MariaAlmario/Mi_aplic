@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Splash Screen
-    setTimeout(() => {
-      document.getElementById("splash-screen").style.display = "none";
-    }, 2000);
-  
+    
     fetchGaleria();
     setupBuscador();
     cargarFavoritos();
