@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
       fechaRegistro: new Date().toISOString()
     };
 
-    console.log("Usuario a registrar:", usuario); // ✅ Verifica que los datos se llenen
+    console.log("Usuario a registrar:", usuario); // Verifica que los datos se llenen
 
     try {
       await addDoc(collection(db, "usuarios"), usuario);
