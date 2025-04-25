@@ -172,7 +172,7 @@ img#Foto {
 
 #informacion {
   background: rgba(0, 0, 0, 0.4) no-repeat center center;
-  background-image: url(/sun.jpg);
+  background-image: url(https://mariaalmario.github.io/Mi_aplic/sun.jpg);
   background-size: cover; /* Asegura que la imagen cubra todo el fondo */
   background-position: center; /* Centra la imagen en el fondo */
   color: rgb(253, 253, 253);
