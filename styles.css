@@ -11,11 +11,15 @@ body {
 
 /* Navegación superior */
 .tabs {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000000;
   display: flex;
-
-  justify-content: center;
-  background: #222;
-  box-shadow: rgba(0,0,0,0.2);
+  justify-content: space-around;
+  border-top: 1px solid #ccc;
+  padding: 10px 0;
+  box-shadow: 0 -1px 4px rgba(0,0,0);
 }
 
 .tabs button {
@@ -68,7 +72,7 @@ h2 {
 
 /* Imagenes */
 img {
-  width: 100%;
+  width: 70%;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -103,29 +107,33 @@ button {
 button:hover {
   background: #004999;
 }
-
 /* Menú inferior */
 .bottom-menu {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #fff;
+  background: #000000;
   display: flex;
   justify-content: space-around;
   border-top: 1px solid #ccc;
   padding: 10px 0;
-  box-shadow: 0 -1px 4px rgba(0,0,0,0.1);
-  z-index: 999;
+  box-shadow: 0 -1px 4px rgba(0,0,0);
+  z-index: 1000;
 }
 
 .bottom-menu button {
-  background: none;
+  padding: 4px;
+  background: #333;
+  color: white;
   border: none;
-  font-weight: bold;
-  color: #444;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.bottom-menu button:hover {
+  background: #555;
 }
 
 /* Imagen aleatoria */
@@ -157,4 +165,19 @@ button:hover {
   #favoritos-list {
     grid-template-columns: 1fr;
   }
+}
+img#Foto {
+  width: 20%;
+}
+
+#informacion {
+  background: rgba(0, 0, 0, 0.4) no-repeat center center;
+  background-image: url(/sun.jpg);
+  background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+  background-position: center; /* Centra la imagen en el fondo */
+  color: rgb(253, 253, 253);
+}
+
+#informacion h2 {
+  color: rgb(253, 253, 253);
 }

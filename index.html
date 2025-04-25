@@ -8,22 +8,17 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
- 
-
-  <!-- Navegación superior -->
-  <header>
-    <nav class="tabs">
-      <button onclick="mostrarSeccion('inicio')">Inicio</button>
-      <button onclick="mostrarSeccion('galeria')">Galería</button>
-      <button onclick="mostrarSeccion('buscar')">Buscar</button>
-      <button onclick="mostrarSeccion('favoritos')">Favoritos</button>
-      <button onclick="mostrarSeccion('informacion')">informacion</button>
-      <button onclick="mostrarSeccion('extra')">Extra</button>
-    </nav>
-  </header>
 
   <!-- Contenido principal -->
   <main>
+  <!-- Menu superior  -->
+    <header>
+      <nav class="tabs">
+        <button onclick="mostrarSeccion('galeria')">Galería</button>
+        <button onclick="mostrarSeccion('informacion')">informacion</button>
+        <button onclick="mostrarSeccion('extra')">Extra</button>
+      </nav>
+    </header>
 
     <section id="inicio" class="seccion activa">
       <h2>Bienvenido</h2>
@@ -52,11 +47,10 @@
     </section>
 
     <section id="informacion" class="seccion">
-      <h2>Información</h2>
-      <h3>API: Lorem Picsum</h3>
+      <h2>Lorem Picsum</h2>
       <p>Maria Paula Almario baes</p>
-      <img src="/picsum.png" alt="Imagen temática de Lorem Picsum" class="imagen-api">
-      <p>Lorem Picsum es una API gratuita que genera imágenes aleatorias y placeholders para utilizar en diseños y pruebas.</p>
+      <img src="/picsum.png" alt="Imagen temática de Lorem Picsum" class="imagen-api" id="Foto">
+      <p>API que genera imágenes aleatorias y placeholders para utilizar en diseños y pruebas.</p>
       <p>github.com/MariaAlmario</p>
       <p>V.1.0.0</p>
 
