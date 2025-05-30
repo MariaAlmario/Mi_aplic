@@ -6,12 +6,16 @@
   <title>Galería API Picsum</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+  <meta name="theme-color" content="#4CAF50" />
 </head>
 <body>
 
   <!-- Contenido principal -->
   <main>
-  <!-- Menu superior  -->
+    <!-- Menu superior -->
     <header>
       <nav class="tabs">
         <button onclick="mostrarSeccion('galeria')">Galería</button>
@@ -53,8 +57,7 @@
       <p>API que genera imágenes aleatorias y placeholders para utilizar en diseños y pruebas.</p>
       <p>github.com/MariaAlmario</p>
       <p>V.1.0.0</p>
-
-  </section>
+    </section>
 
     <section id="registro" class="seccion">
       <h2>Formulario de Registro</h2>
@@ -68,7 +71,6 @@
         <input type="text" name="pais" placeholder="País" required />
         <button type="submit">Registrar</button>
       </form>
-      
     </section>
 
     <section id="extra" class="seccion">
@@ -76,7 +78,6 @@
       <button onclick="mostrarImagenAleatoria()">Ver Imagen Aleatoria</button>
       <div id="imagen-aleatoria"></div>
     </section>
-
   </main>
 
   <!-- Menú inferior -->
@@ -85,11 +86,52 @@
     <button onclick="mostrarSeccion('buscar')">Buscar</button>
     <button onclick="mostrarSeccion('favoritos')">Favoritos</button>
     <button onclick="mostrarSeccion('registro')">Perfil</button>
+    <button id="btn-instalar" style="display: none;">📲 Instalar App</button>
   </footer>
 
+  <!-- Scripts -->
   <script src="script.js"></script>
   <script type="module" src="firebase-init.js"></script>
   <script type="module" src="registro.js"></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('✅ Service Worker registrado'))
+        .catch(error => console.error('❌ Error al registrar el Service Worker:', error));
+    }
+
+    let deferredPrompt;
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      const btn = document.getElementById("btn-instalar");
+      if (btn) btn.style.display = "block";
+    });
+
+    document.getElementById("btn-instalar").addEventListener("click", async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log("Resultado de instalación:", outcome);
+        deferredPrompt = null;
+        document.getElementById("btn-instalar").style.display = "none";
+      }
+    });
+
+    function esIOS() {
+      return /iphone|ipad|ipod/.test(window.navigator.userAgent.toLowerCase());
+    }
+
+    if (esIOS()) {
+      const mensaje = document.createElement("div");
+      mensaje.innerHTML = `
+        <p>En iOS, toca <strong>Compartir</strong> y luego "Agregar a pantalla de inicio" para instalar.</p>
+      `;
+      document.getElementById("btn-instalar").replaceWith(mensaje);
+    }
+  </script>
 
 </body>
 </html>
